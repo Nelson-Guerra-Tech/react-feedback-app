@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+const App = () => {
+  const title = "Blog Post";
+  const body = "This is my blogpost";
+  const comments = [
+    {
+      id: 1,
+      text: "Comment one",
+    },
+    {
+      id: 2,
+      text: "Comment two",
+    },
+    {
+      id: 2,
+      text: "Comment three",
+    },
+  ];
 
-function App() {
+  // JSX
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>{title}</h1>
+      <p>{body}</p>
+
+      <div className="comments">
+        <h3>Comments ({comments.length})</h3>
+        <ul>
+          {comments.map((comment, index) => (
+            <li key={index}>{comment.text}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
+// exporting the app to the html root div
 export default App;
